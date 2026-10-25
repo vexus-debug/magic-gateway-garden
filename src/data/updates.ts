@@ -13,6 +13,15 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v1.8.1",
+    date: "October 25, 2026",
+    title: "Blog autopilot runs on its own",
+    kind: "improvement",
+    items: [
+      { kind: "improvement", text: "The blog autopilot now runs automatically every hour, with no outside scheduler needed." },
+    ],
+  },
+  {
     version: "v1.8.0",
     date: "October 25, 2026",
     title: "Blog autopilot, photos and calls to action",
