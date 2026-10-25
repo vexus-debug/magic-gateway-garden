@@ -58,7 +58,7 @@ const Footer = () => {
           )}
         </div>
 
-        <div className="grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-6">
+        <div className="grid gap-10 py-14 lg:grid-cols-6">
           <div className="space-y-4 lg:col-span-2">
             <img src={clinexusLogoWhite} alt="Clinexus" className="h-9" />
             <p className="max-w-xs text-sm text-foreground/60">
@@ -78,6 +78,7 @@ const Footer = () => {
               </a>
             </div>
           </div>
+          <div className="grid grid-cols-2 gap-x-6 gap-y-10 lg:col-span-4 lg:grid-cols-4">
           {columns.map((col) => (
             <div key={col.title} className="space-y-4">
               <h4 className="text-sm font-semibold text-foreground">{col.title}</h4>
@@ -94,6 +95,7 @@ const Footer = () => {
               </ul>
             </div>
           ))}
+          </div>
         </div>
 
         <div className="flex flex-col gap-3 border-t border-border py-6 text-xs text-foreground/50 md:flex-row md:items-center md:justify-between">
