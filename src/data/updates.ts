@@ -13,6 +13,15 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v1.8.3",
+    date: "October 25, 2026",
+    title: "Tidier footer on phones",
+    kind: "fix",
+    items: [
+      { kind: "fix", text: "Footer links on phones now sit in two rows of two columns instead of one long list." },
+    ],
+  },
+  {
     version: "v1.8.2",
     date: "October 25, 2026",
     title: "New menu and footer",
