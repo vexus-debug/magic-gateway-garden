@@ -13,6 +13,16 @@ export interface UpdateEntry {
 
 export const updates: UpdateEntry[] = [
   {
+    version: "v1.8.2",
+    date: "October 25, 2026",
+    title: "New menu and footer",
+    kind: "improvement",
+    items: [
+      { kind: "improvement", text: "The website menu now has Solutions and Resources dropdowns with short descriptions." },
+      { kind: "improvement", text: "The footer was redesigned with a newsletter signup and organised link columns." },
+    ],
+  },
+  {
     version: "v1.8.1",
     date: "October 25, 2026",
     title: "Blog autopilot runs on its own",

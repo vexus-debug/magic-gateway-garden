@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { Menu, ArrowRight, X, ChevronDown, Mail, Phone } from "lucide-react";
+import { Menu, ArrowRight, X, ChevronDown, Mail, Phone, Eye, Stethoscope, LayoutGrid, Sparkles, GraduationCap, BookOpen, Megaphone } from "lucide-react";
 import clinexusLogoWhite from "@/assets/site/clinexus-logo-white.png";
 import clinexusLogo from "@/assets/site/clinexus-logo.png";
 
@@ -48,15 +48,30 @@ const mobileDirect = [
   { label: "Contact", to: "/contact" },
 ];
 
-const navLinks = [
-  { label: "Home", to: "/" },
-  { label: "Industries", to: "/industries" },
-  { label: "Tutorials", to: "/tutorials" },
-  { label: "Articles", to: "/articles" },
+const megaMenus = [
+  {
+    label: "Solutions",
+    items: [
+      { label: "Eye clinics", desc: "Optometry, refraction and optical sales in one place.", to: "/industries/eye-clinics", icon: Eye },
+      { label: "Dental clinics", desc: "Charting, treatment plans and chair scheduling.", to: "/industries/dental-clinics", icon: Stethoscope },
+      { label: "Eye clinic features", desc: "Everything included for eye care teams.", to: "/industries/eye-clinics/features", icon: LayoutGrid },
+      { label: "Dental clinic features", desc: "Everything included for dental teams.", to: "/industries/dental-clinics/features", icon: Sparkles },
+    ],
+  },
+  {
+    label: "Resources",
+    items: [
+      { label: "Tutorials", desc: "Step-by-step guides for every role.", to: "/tutorials", icon: GraduationCap },
+      { label: "Articles", desc: "Insights on running a better clinic.", to: "/articles", icon: BookOpen },
+      { label: "Updates", desc: "What's new in Clinexus.", to: "/updates", icon: Megaphone },
+      { label: "All industries", desc: "See every specialty we support.", to: "/industries", icon: LayoutGrid },
+    ],
+  },
+];
+
+const directLinks = [
   { label: "About", to: "/about" },
   { label: "Contact", to: "/contact" },
-  { label: "Privacy Policy", to: "/privacy" },
-  { label: "Terms of Service", to: "/terms" },
 ];
 
 const isDark = (pathname: string) =>
@@ -134,27 +149,53 @@ const Navbar = () => {
           />
         </Link>
 
-        {/* Desktop nav */}
-        <div className="hidden items-center md:flex">
-          <div className="flex items-center rounded-sm border border-border/50 bg-background/60 px-1 py-1">
-            {navLinks.map((link) => (
-              <Link
-                key={link.to}
-                to={link.to}
-                className={`relative rounded-sm px-4 py-1.5 text-sm font-medium transition-all duration-200 ${
-                  location.pathname === link.to
-                    ? darkHero
-                      ? "bg-white/15 text-white shadow-sm"
-                      : "bg-primary text-primary-foreground shadow-sm"
-                    : darkHero
-                    ? "text-white/70 hover:text-white hover:bg-white/10"
-                    : "text-muted-foreground hover:text-foreground hover:bg-muted/60"
+        {/* Desktop nav — mega menus */}
+        <div className="hidden items-center gap-1 md:flex">
+          {megaMenus.map((menu) => (
+            <div key={menu.label} className="group relative">
+              <button
+                type="button"
+                className={`flex items-center gap-1 rounded-sm px-4 py-2 text-sm font-medium transition-colors ${
+                  darkHero ? "text-white/80 hover:text-white" : "text-muted-foreground hover:text-foreground"
                 }`}
               >
-                {link.label}
-              </Link>
-            ))}
-          </div>
+                {menu.label}
+                <ChevronDown className="h-3.5 w-3.5 transition-transform duration-200 group-hover:rotate-180" />
+              </button>
+              <div className="invisible absolute left-1/2 top-full z-50 -translate-x-1/2 pt-3 opacity-0 transition-all duration-200 group-hover:visible group-hover:opacity-100 group-focus-within:visible group-focus-within:opacity-100">
+                <div className="grid w-[560px] grid-cols-2 gap-1 rounded-lg border border-border bg-popover p-3 text-popover-foreground shadow-2xl">
+                  {menu.items.map((item) => (
+                    <Link
+                      key={item.to}
+                      to={item.to}
+                      className="flex gap-3 rounded-md p-3 transition-colors hover:bg-muted"
+                    >
+                      <span className="mt-0.5 flex h-9 w-9 shrink-0 items-center justify-center rounded-md bg-primary/10 text-primary">
+                        <item.icon className="h-4 w-4" />
+                      </span>
+                      <span>
+                        <span className="block text-sm font-semibold text-foreground">{item.label}</span>
+                        <span className="mt-0.5 block text-xs leading-snug text-muted-foreground">{item.desc}</span>
+                      </span>
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
+          ))}
+          {directLinks.map((link) => (
+            <Link
+              key={link.to}
+              to={link.to}
+              className={`rounded-sm px-4 py-2 text-sm font-medium transition-colors ${
+                location.pathname === link.to
+                  ? darkHero ? "text-white" : "text-foreground"
+                  : darkHero ? "text-white/80 hover:text-white" : "text-muted-foreground hover:text-foreground"
+              }`}
+            >
+              {link.label}
+            </Link>
+          ))}
         </div>
 
         {/* Desktop CTAs */}
