@@ -5747,6 +5747,153 @@ export type Database = {
         }
         Relationships: []
       }
+      visitor_events: {
+        Row: {
+          created_at: string
+          event_type: string
+          id: string
+          metadata: Json | null
+          path: string | null
+          session_id: string
+          visitor_id: string
+        }
+        Insert: {
+          created_at?: string
+          event_type: string
+          id?: string
+          metadata?: Json | null
+          path?: string | null
+          session_id: string
+          visitor_id: string
+        }
+        Update: {
+          created_at?: string
+          event_type?: string
+          id?: string
+          metadata?: Json | null
+          path?: string | null
+          session_id?: string
+          visitor_id?: string
+        }
+        Relationships: []
+      }
+      visitor_sessions: {
+        Row: {
+          browser: string | null
+          city: string | null
+          country: string | null
+          cpu_cores: number | null
+          device_memory_gb: number | null
+          device_type: string | null
+          duration_seconds: number
+          exit_page: string | null
+          fingerprint_hash: string | null
+          gpu_renderer: string | null
+          id: string
+          ip: string | null
+          is_bounced: boolean
+          is_pwa: boolean
+          landing_page: string | null
+          last_seen_at: string
+          locale: string | null
+          os: string | null
+          page_views_count: number
+          pixel_ratio: string | null
+          referrer_name: string | null
+          referrer_url: string | null
+          region: string | null
+          screen_resolution: string | null
+          session_id: string
+          started_at: string
+          timezone: string | null
+          touch_points: number | null
+          user_agent: string | null
+          user_id: string | null
+          utm_campaign: string | null
+          utm_content: string | null
+          utm_medium: string | null
+          utm_source: string | null
+          utm_term: string | null
+          visitor_id: string
+        }
+        Insert: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          cpu_cores?: number | null
+          device_memory_gb?: number | null
+          device_type?: string | null
+          duration_seconds?: number
+          exit_page?: string | null
+          fingerprint_hash?: string | null
+          gpu_renderer?: string | null
+          id?: string
+          ip?: string | null
+          is_bounced?: boolean
+          is_pwa?: boolean
+          landing_page?: string | null
+          last_seen_at?: string
+          locale?: string | null
+          os?: string | null
+          page_views_count?: number
+          pixel_ratio?: string | null
+          referrer_name?: string | null
+          referrer_url?: string | null
+          region?: string | null
+          screen_resolution?: string | null
+          session_id: string
+          started_at?: string
+          timezone?: string | null
+          touch_points?: number | null
+          user_agent?: string | null
+          user_id?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          visitor_id: string
+        }
+        Update: {
+          browser?: string | null
+          city?: string | null
+          country?: string | null
+          cpu_cores?: number | null
+          device_memory_gb?: number | null
+          device_type?: string | null
+          duration_seconds?: number
+          exit_page?: string | null
+          fingerprint_hash?: string | null
+          gpu_renderer?: string | null
+          id?: string
+          ip?: string | null
+          is_bounced?: boolean
+          is_pwa?: boolean
+          landing_page?: string | null
+          last_seen_at?: string
+          locale?: string | null
+          os?: string | null
+          page_views_count?: number
+          pixel_ratio?: string | null
+          referrer_name?: string | null
+          referrer_url?: string | null
+          region?: string | null
+          screen_resolution?: string | null
+          session_id?: string
+          started_at?: string
+          timezone?: string | null
+          touch_points?: number | null
+          user_agent?: string | null
+          user_id?: string | null
+          utm_campaign?: string | null
+          utm_content?: string | null
+          utm_medium?: string | null
+          utm_source?: string | null
+          utm_term?: string | null
+          visitor_id?: string
+        }
+        Relationships: []
+      }
       waiting_list: {
         Row: {
           appointment_id: string | null
