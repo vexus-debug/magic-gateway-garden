@@ -29,6 +29,7 @@ interface Fingerprint {
   locale?: string;
   touch_points?: number;
   is_pwa?: boolean;
+  fingerprint_hash?: string;
 }
 
 const state = {
