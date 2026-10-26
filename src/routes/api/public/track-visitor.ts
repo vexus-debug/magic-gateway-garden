@@ -178,7 +178,13 @@ export const Route = createFileRoute("/api/public/track-visitor")({
             });
             if (error) throw error;
           } else {
-            const update: Record<string, unknown> = {
+            const update: {
+              last_seen_at: string;
+              exit_page?: string;
+              duration_seconds?: number;
+              page_views_count?: number;
+              is_bounced?: boolean;
+            } = {
               last_seen_at: now,
             };
             if (d.path) update.exit_page = d.path;
@@ -198,7 +204,7 @@ export const Route = createFileRoute("/api/public/track-visitor")({
               visitor_id: d.visitor_id,
               path: d.path ?? null,
               event_type: d.event_type,
-              metadata: d.metadata ?? null,
+              metadata: (d.metadata ?? null) as import("@/integrations/supabase/types").Json,
             });
             if (error) throw error;
           }
